@@ -1,0 +1,13 @@
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #233333;
+  .tip, .admin {
+    border-left: 1px solid #233333;
+  }
+  .tip, .admin, .time {
+    text-align: center;
+    padding: 10px 15px;
+    flex: 1;
+  }
+}
