@@ -22,8 +22,12 @@
   }
   .route-wrapper {
     flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+  }
+  p {
+    padding: 0;
+    margin: 0;
   }
 }

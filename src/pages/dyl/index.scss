@@ -1,0 +1,66 @@
+.init-config-wrapper {
+  .top {
+    min-height: 150px;
+    max-height: 200px;
+    overflow: scroll;
+    padding: 20px 40px 0 40px;
+    border-bottom: 1px solid #233333;
+  }
+  .mediem {
+    min-height: 150px;
+    display: flex;
+    padding: 20px 40px 0 40px;
+    .config-wrapper {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .config-button-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .config-button {
+        display: inline-block;
+        padding: 10px 40px;
+        border-radius: 6px;
+        background-color: rgb(254, 44, 85);
+        color: #FFF;
+        cursor: pointer;
+      }
+    }
+  }
+  .bottom {
+    min-height: 150px;
+    padding: 20px 40px 0 40px;
+    border-top: 1px solid #233333;
+  }
+  .virtual-machines-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    .machine-item-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-right: 40px;
+      margin-bottom: 20px;
+      border: 2px solid transparent;
+      border-radius: 4px;
+      padding: 10px;
+      .machine-icon {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 10px;
+        background: url('~@static/image/machine.png') no-repeat;
+        background-size: cover;
+      }
+      .machine-ip {
+        font-size: 14px;
+      }
+      &.selected {
+        border: 2px solid lightgreen;
+      }
+    }
+  }
+}
