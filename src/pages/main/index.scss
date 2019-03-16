@@ -1,0 +1,29 @@
+.main-wrapper {
+  padding: 20px 40px 0 40px;
+  .top {
+    .statistic-info {
+      display: flex;
+      font-size: 16px;
+      border: 1px solid #233333;
+      .info-item {
+        text-align: center;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-right: 1px solid #233333;
+        .info-count {
+          font-size: 26px;
+          color: lightcoral;
+          border-top: 1px solid #233333;
+        }
+      }
+    }
+  }
+  .medium {
+    
+  }
+  .bottom {
+
+  }
+}
