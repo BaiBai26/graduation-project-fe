@@ -19,7 +19,8 @@ class PageD extends React.Component {
       selectedConfig: null,
       allMachines: null,
       successConfigMachines: null,
-      modalVisible: false
+      modalVisible: false,
+      btnClickable: true
     }
   }
   componentDidMount() {
@@ -104,22 +105,48 @@ class PageD extends React.Component {
     )
   }
   handleClickConfigButton() {
-    confirm({
-      title: '注意',
-      content: '确定要应用吗？',
-      onOk:this.confirm,
-      onCancel: this.cancel,
+    // confirm({
+    //   title: '注意',
+    //   content: '确定要应用吗？',
+    //   onOk:this.confirm,
+    //   onCancel: this.cancel,
+    // })
+    const { btnClickable } = this.state
+    console.log(btnClickable)
+    if(!btnClickable) {
+      message.error('当前不可执行配置!')
+      return
+    }
+    this.setState({
+      modalVisible: true
     })
+    setTimeout(() => {
+      this.setState({
+        btnClickable: true
+      })
+    }, 2500)
   }
   confirm() {
     // 异步
+    this.setState({
+      btnClickable: false,
+      modalVisible: false
+    })
     message.success('已应用')
+    // setTimeout(() => {
+    //   this.setState({
+    //     btnClickable: true
+    //   }, 2000)
+    // })
   }
   cancel() {
+    this.setState({
+      modalVisible: false
+    })
     message.error('已取消应用')
   }
   render() {
-    const {successConfigMachines, selectedMachineNumber, allMachines} = this.state
+    const {successConfigMachines, selectedMachineNumber, allMachines, btnClickable} = this.state
     const successNumber = successConfigMachines ? successConfigMachines.length : 0
     return (
       <div className="init-config-wrapper">
@@ -130,13 +157,23 @@ class PageD extends React.Component {
         <div className="mediem">
           {this.renderConfig()}
           <div className="config-button-wrapper">
-            <div className="config-button" onClick={this.handleClickConfigButton.bind(this)}>应用</div>
+            <div className={clsn("config-button", {
+              "disable": !btnClickable
+            })} onClick={this.handleClickConfigButton.bind(this)}>应用</div>
           </div>
         </div>
         <div className="bottom">
           <div className="success-title">已成功配置的机器: <span>{successNumber}台</span></div>
           { this.renderVirtualMachine(successConfigMachines, NO_SUCCESS_CONTENT, () => {})}
         </div>
+        <Modal
+          title="注意"
+          onOk={this.confirm.bind(this)}
+          onCancel={this.cancel.bind(this)}
+          visible={this.state.modalVisible}
+        >
+          <p>应用后不可撤销，确定提交吗？</p>
+        </Modal>
       </div>
     )
   }

@@ -17,6 +17,14 @@ module.exports = {
       '@static': path.resolve(__dirname, './static/')
     }
   },
+  devServer: {
+    historyApiFallback: {
+      rewrites: [
+        { from: /.*/, to: '/'},
+      ],
+      hot: true,
+    }
+  },
   module: {
     rules: [
       {

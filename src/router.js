@@ -1,15 +1,32 @@
 import * as React from 'react'
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
+  HashRouter,
   Route,
   Link
 } from 'react-router-dom'
 import PageB from './pages/bw'
 import PageD from './pages/dyl'
 import PageJ from './pages/jgs'
-import PageM from './pages/main'
+import PageM from './pages/manage'
+import LoginPage from './pages/login'
+import MainPage from './pages/main'
 import './common/css/base.scss'
 const routerList = [
+  {
+    component: LoginPage,
+    path: `/`,
+    key: 'login',
+    exact: true
+  },
+  {
+    component: MainPage,
+    path: '/fudan',
+    key: 'mainP',
+    exact: true
+  }
+]
+const subRouterList = [
   {
     component: PageM,
     path: `/`,
@@ -33,19 +50,31 @@ const routerList = [
     exact: true
   }
 ]
-const render = routerList.map(item => {
-  const {component, key, path, exact} = item
-  const props = {
-    path,
-    component,
-    exact
-  }
-  return <Route key={key} {...props}/>
-})
+const render = (routerList) => {
+  return routerList.map(item => {
+    const {component, key, path, exact} = item
+    const props = {
+      path,
+      component,
+      exact
+    }
+    return <Route key={key} {...props}/>
+  })
+}
 
-export default () => {
+export const RouterRoute = () => {
   return (
     <Router>
+      <div>
+        {render(routerList)}
+      </div>
+    </Router>
+  )
+}
+export const SubRouter = () => {
+  console.log(subRouterList)
+  return (
+    <HashRouter>
       <div className="content-wrapper">
         <nav className="link-wrapper">
           <ul className="container">
@@ -56,9 +85,9 @@ export default () => {
           </ul>
         </nav>
         <div className="route-wrapper">
-          {render}
+          {render(subRouterList)}
         </div>
       </div>
-    </Router>
+    </HashRouter>
   )
 }

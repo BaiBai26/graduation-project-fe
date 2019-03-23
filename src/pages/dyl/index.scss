@@ -27,6 +27,10 @@
         background-color: rgb(254, 44, 85);
         color: #FFF;
         cursor: pointer;
+        &.disable {
+          background-color: rgba(22, 24, 35, .3);
+          color: #fff;
+        }
       }
     }
   }
