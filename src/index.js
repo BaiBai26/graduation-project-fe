@@ -4,6 +4,7 @@ import RouterRender from './router.js'
 import Header from './component/header'
 import Navbar from './component/navbar'
 import './common/css/base.scss'
+import "antd/dist/antd.css";
 class App extends React.Component {
   render() {
     return (

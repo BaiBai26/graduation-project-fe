@@ -5,6 +5,8 @@ import {
   SECURITY_CONFIG,
   SUCCESS_CONFIG
  } from '@static/js/mock_dyl'
+import { Modal, message } from 'antd'
+const confirm = Modal.confirm
 import './index.scss'
  const NO_MACHINE_CONTENT = '当前环境没有任何虚拟机...'
  const NO_SUCCESS_CONTENT = '目前还没有成功配置的虚拟机...'
@@ -16,7 +18,8 @@ class PageD extends React.Component {
       selectedMachines: null,
       selectedConfig: null,
       allMachines: null,
-      successConfigMachines: null
+      successConfigMachines: null,
+      modalVisible: false
     }
   }
   componentDidMount() {
@@ -101,7 +104,19 @@ class PageD extends React.Component {
     )
   }
   handleClickConfigButton() {
-
+    confirm({
+      title: '注意',
+      content: '确定要应用吗？',
+      onOk:this.confirm,
+      onCancel: this.cancel,
+    })
+  }
+  confirm() {
+    // 异步
+    message.success('已应用')
+  }
+  cancel() {
+    message.error('已取消应用')
   }
   render() {
     const {successConfigMachines, selectedMachineNumber, allMachines} = this.state
@@ -114,8 +129,8 @@ class PageD extends React.Component {
         </div>
         <div className="mediem">
           {this.renderConfig()}
-          <div className="config-button-wrapper" onClick={this.handleClickConfigButton.bind(this)}>
-            <div className="config-button">应用</div>
+          <div className="config-button-wrapper">
+            <div className="config-button" onClick={this.handleClickConfigButton.bind(this)}>应用</div>
           </div>
         </div>
         <div className="bottom">
