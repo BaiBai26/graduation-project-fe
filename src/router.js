@@ -11,6 +11,8 @@ import PageJ from './pages/jgs'
 import PageM from './pages/manage'
 import LoginPage from './pages/login'
 import MainPage from './pages/main'
+import { connect } from './component/layout'
+import Layout from './component/layout'
 import './common/css/base.scss'
 const routerList = [
   {
@@ -55,7 +57,7 @@ const render = (routerList) => {
     const {component, key, path, exact} = item
     const props = {
       path,
-      component,
+      component: connect(component),
       exact
     }
     return <Route key={key} {...props}/>
@@ -65,14 +67,16 @@ const render = (routerList) => {
 export const RouterRoute = () => {
   return (
     <Router>
-      <div>
-        {render(routerList)}
-      </div>
+      <Layout>
+        <div>
+          {render(routerList)}
+        </div>
+      </Layout>
     </Router>
   )
 }
 export const SubRouter = () => {
-  console.log(subRouterList)
+  // console.log(subRouterList)
   return (
     <HashRouter>
       <div className="content-wrapper">

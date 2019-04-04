@@ -9,7 +9,7 @@
 git clone git@github.com:douyanlin/graduation-project-fe.git
 cd graduation-project-fe
 npm install
-npm run start
+npm run dev
 //修改页面，浏览器自动刷新
 ```
 

@@ -2,6 +2,8 @@ import * as React from 'react'
 import {
   Form, Icon, Input, Button, Checkbox, message
 } from 'antd';
+import { userLogin } from '@utils/api'
+import Context from '@component/context'
 import './index.scss'
 class LoginPage extends React.Component {
   constructor(props){
@@ -22,7 +24,16 @@ class LoginPage extends React.Component {
       message.error('请输入密码')
       return
     }
-    this.props.history.push('/fudan')
+    userLogin({
+      username,
+      password
+    }).then(res => {
+      message.success(res.status_msg)
+      this.context.modify({token: res.token})
+      this.props.history.push('/fudan')
+    }).catch(rej => {
+      message.error(rej.status_msg)
+    })
   }
   handleNameChange(e) {
     this.setState({
@@ -61,5 +72,5 @@ class LoginPage extends React.Component {
     )
   }
 }
-
+LoginPage.contextType = Context
 export default LoginPage

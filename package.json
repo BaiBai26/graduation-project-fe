@@ -4,13 +4,14 @@
   "description": "graduation_project",
   "main": "index.js",
   "scripts": {
-    "start": "rm -rf ./dist && ENV=dev webpack-dev-server --open --mode development",
+    "dev": "rm -rf ./dist && ENV=dev webpack-dev-server --open --mode development",
     "build": "rm -rf ./dist && ENV=prod webpack --mode production"
   },
   "author": "douyl",
   "license": "ISC",
   "dependencies": {
     "antd": "^3.15.1",
+    "axios": "^0.18.0",
     "classnames": "^2.2.6",
     "echarts": "^4.1.0",
     "react": "^16.8.4",
