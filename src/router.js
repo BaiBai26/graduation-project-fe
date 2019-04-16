@@ -5,6 +5,7 @@ import {
   Route,
   Link
 } from 'react-router-dom'
+import { Menu, Icon } from 'antd'
 import PageB from './pages/bw'
 import PageD from './pages/dyl'
 import PageJ from './pages/jgs'
@@ -76,21 +77,51 @@ export const RouterRoute = () => {
   )
 }
 export const SubRouter = () => {
-  // console.log(subRouterList)
   return (
     <HashRouter>
       <div className="content-wrapper">
         <nav className="link-wrapper">
-          <ul className="container">
-            <li className="router-item"><Link to="/" style={{textDecoration: 'none'}}>信息汇总</Link></li>
-            <li className="router-item"><Link to="/bw" style={{textDecoration: 'none'}}>用户管理</Link></li>
-            <li className="router-item"><Link to="/dyl" style={{textDecoration: 'none'}}>安全配置</Link></li>
-            <li className="router-item"><Link to="/jgs" style={{textDecoration: 'none'}}>搜索查询</Link></li>
-          </ul>
+          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+            <Menu.Item key="1">
+              <Icon type="info-circle" />
+              <span>信息汇总</span>
+              <Link to="/" style={{textDecoration: 'none'}}>
+                <Icon type="info-circle" />
+                <span>信息汇总</span>
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="2">
+              <Icon type="usergroup-delete" />
+              <span>用户管理</span>
+              <Link to="/bw" style={{textDecoration: 'none'}}>
+                <Icon type="usergroup-delete" />
+                <span>用户管理</span>
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="3">
+              <Link to="/dyl" style={{textDecoration: 'none'}}>
+                <Icon type="file-protect" />
+                <span>安全配置</span>
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="4">
+              <Link to="/jgs" style={{textDecoration: 'none'}}>
+                <Icon type="search" />
+                <span>搜索查询</span>
+              </Link>
+            </Menu.Item>
+          </Menu>
         </nav>
-        <div className="route-wrapper">
-          {render(subRouterList)}
-        </div>
+      </div>
+    </HashRouter>
+  )
+}
+
+export const renderContent = () => {
+  return (
+    <HashRouter>
+      <div className="route-wrapper">
+        {render(subRouterList)}
       </div>
     </HashRouter>
   )

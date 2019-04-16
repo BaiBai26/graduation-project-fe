@@ -1,0 +1,31 @@
+.layout {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  .main-header {
+    display: flex;
+    background: '#ffffff';
+    padding: 0;
+    justify-content: space-between;
+    align-items: center;
+    .trigger {
+      margin-left: 20px;
+    }
+    .user-profile {
+      padding: 0 20px;
+      border-left: 1px solid #eeeeee;
+      cursor: pointer;
+      .user-name {
+        display: inline-block;
+        font-size: 14px;
+        margin-left: 12px;
+      }
+    }
+  }
+}
+.pad {
+  width: 80%;
+  height: 100px;
+}

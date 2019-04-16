@@ -6,7 +6,8 @@ class Header extends React.Component {
     return (
       <header className="header-wrapper">
         <div className="container">
-          <p className="project-name">系统名称及系统logo，待定<span className="logo"></span></p>
+          <span className="logo"></span>
+          <div className="project-name">可定制的虚拟机初始化系统</div>
         </div>
       </header>
     )

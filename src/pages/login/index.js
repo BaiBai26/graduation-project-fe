@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {
-  Form, Icon, Input, Button, Checkbox, message
+  Icon, Input, Button, message
 } from 'antd';
 import { userLogin } from '@utils/api'
 import Context from '@component/context'
@@ -16,24 +16,22 @@ class LoginPage extends React.Component {
   }
   handleLogin() {
     const { username, password } = this.state
-    if(!username) {
-      message.error('请输入用户名')
-      return
-    }
-    if(!password) {
-      message.error('请输入密码')
-      return
-    }
-    userLogin({
-      username,
-      password
-    }).then(res => {
-      message.success(res.status_msg)
-      this.context.modify({token: res.token})
+    // if(!username) {
+    //   message.error('请输入用户名')
+    //   return
+    // }
+    // if(!password) {
+    //   message.error('请输入密码')
+    //   return
+    // }
+    // userLogin(username, password).then(res => {
+    //   console.log(res)
+    //   message.success(res.status_msg)
+    //   this.context.modify({token: res.data.token})
       this.props.history.push('/fudan')
-    }).catch(rej => {
-      message.error(rej.status_msg)
-    })
+    // }).catch(rej => {
+    //   message.error(rej.status_msg)
+    // })
   }
   handleNameChange(e) {
     this.setState({
@@ -48,6 +46,8 @@ class LoginPage extends React.Component {
   render() {
     return (
       <div className="login-wrapper">
+        <div className="logo"></div>
+        <div className="title">可定制的虚拟机初始化系统</div>
         <div className="form-wrapper">
           <div className="user-name">
             <Input 

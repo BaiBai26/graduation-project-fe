@@ -9,6 +9,8 @@ import {
   GAOJING_EVENT_NUMBER,
   UNDONE_EVENT_NUMBER
 } from '../../../static/js/mock_main'
+import { getVMNums, getVMMonitor } from '@utils/api'
+import Context from '@component/context'
 import './index.scss'
 class PageM extends React.Component {
   constructor(props) {
@@ -25,6 +27,14 @@ class PageM extends React.Component {
     }
   }
   componentDidMount() {
+    // const { token } = this.context
+    // console.log('token', token)
+    // getVMNums(token).then(res => {
+    //   console.log('res1', res)
+    // })
+    // getVMMonitor(token).then(res => {
+    //   console.log('res2', res)
+    // })
     this.setState({
       sandboxNumber: SHAXIANG_NUMBER,
       phyMachineNumber: PHY_MACHINE_NUMBER,
@@ -94,5 +104,5 @@ class PageM extends React.Component {
     )
   }
 }
-
+PageM.contextType = Context
 export default PageM
