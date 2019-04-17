@@ -1,0 +1,130 @@
+
+
+
+
+/* ========= */
+/*	  Top    */
+/* ========= */
+.submit {
+	display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.select{
+	border-radius: 5px;
+    box-shadow: 0 0 5px #ccc;
+	padding: 10px 40px;
+	background-color:  #fe2c55;
+	margin:20px;
+}
+
+.select select{
+    border: none;
+    outline: none;
+ 	  background-color: #fe2c55;
+ 	  color: #FFF;
+
+ 	  height: 100%;
+    line-height: 100%;
+    
+    appearance: none;
+    padding-left: 60px;
+
+}
+
+.select .select-options{
+	 padding: 10px 40px;
+	 border-radius: 6px;
+    background-color: #fe2c55;
+    color: #FFF;
+    cursor: pointer;
+}
+
+.config-button-wrapper{
+	margin: 20px;
+}
+
+.config-button-wrapper .config-button {
+    padding: 10px 40px;
+    border-radius: 6px;
+    background-color: #fe2c55;
+    color: #FFF;
+    cursor: pointer;
+}
+
+/* ========= */
+/*	 Bottom  */
+/* ========= */
+
+.bottom{
+	padding: 20px 40px 0 40px;
+    border-top: 1px solid #233333;
+}
+
+.displayFlag{
+    display: none;
+}
+
+table {
+  margin-top:15px;
+  border-collapse:collapse;
+  border:1px solid #aaa;
+  width:60%;
+}
+table th {
+  vertical-align:baseline;
+  padding:5px 15px 5px 6px;
+  background-color:#3F3F3F;
+  border:1px solid #3F3F3F;
+  text-align:center;
+  color:#fff;
+}
+table td {
+  vertical-align:text-top;
+  text-align: center;
+  padding:6px,15px;
+  border:1px solid #aaa;
+}
+
+table td div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+table tr:nth-child(odd) {
+  background-color:#F5F5F5;
+}
+table tr:nth-child(even) {
+  background-color:#fff;
+}
+
+.button{
+    padding: 10px 40px;
+    border-radius: 6px;
+    background-color: #fe2c55;
+    color: #FFF;
+    cursor: pointer;
+    width:150px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

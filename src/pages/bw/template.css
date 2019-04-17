@@ -1,0 +1,62 @@
+.template{
+    margin-top: 20px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items:flex-start;
+}
+
+/* 内部按列排版，与外部按列排版 */
+.rules-block{
+    margin-bottom: 20px;
+    min-height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+
+}
+
+/* 内部按列排版，与外部按行排版 */
+.rules-inline{
+    display: inline;
+    margin-right: 20px; 
+    display: flex;
+    flex-direction: column;
+}
+
+
+.index-warning-type,.incident-warning-type{
+    position: relative;
+}
+
+.rules-block table td,
+.rules-block table th {
+    border: none;
+}
+
+/* ========= */
+/*  detail   */
+/* ========= */
+
+/* incident-db */
+
+.incident-db-detail,.incident-ssh-detail{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    align-items:flex-start;
+    flex-wrap: wrap;
+}
+
+#incident-db-detail-SQL{
+    width: 80%;
+}
+
+
+
+
+
+
+
+

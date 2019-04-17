@@ -7,6 +7,9 @@ import {
 } from 'react-router-dom'
 import { Menu, Icon } from 'antd'
 import PageB from './pages/bw'
+import Rules from './pages/bw/rules.js'
+import Template from './pages/bw/template.js'
+import History from './pages/bw/history.js'
 import PageD from './pages/dyl'
 import PageJ from './pages/jgs'
 import PageM from './pages/manage'
@@ -51,6 +54,21 @@ const subRouterList = [
     path: '/jgs',
     key: 'jgs',
     exact: true
+  },{
+    component: Template,
+    path: '/bw/template',
+    key: 'bw_template',
+    exact: true
+  },{
+    component: Rules,
+    path: '/bw/rules',
+    key: 'bw_rules',
+    exact: true
+  },{
+    component: History,
+    path: '/bw/history',
+    key: 'bw_history',
+    exact: true
   }
 ]
 const render = (routerList) => {
@@ -92,10 +110,10 @@ export const SubRouter = () => {
             </Menu.Item>
             <Menu.Item key="2">
               <Icon type="usergroup-delete" />
-              <span>用户管理</span>
+              <span>告警配置</span>
               <Link to="/bw" style={{textDecoration: 'none'}}>
                 <Icon type="usergroup-delete" />
-                <span>用户管理</span>
+                <span>告警配置</span>
               </Link>
             </Menu.Item>
             <Menu.Item key="3">
